@@ -1,13 +1,14 @@
 ## Conversational Q&A Chatbot
 
 from langchain.schema import HumanMessage, SystemMessage, AIMessage
-from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 
 import streamlit as st
 
 # Global keywords
 state_keyword = 'history_messages'
+load_dotenv()
 chat = ChatOpenAI(temperature=0.5)
 
 
@@ -32,5 +33,4 @@ def setup_streamlit_ui():
         st.subheader("The Response is")
         st.write(response)
 
-load_dotenv()
 setup_streamlit_ui()
